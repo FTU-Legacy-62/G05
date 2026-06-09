@@ -1,9 +1,19 @@
-# PortTrack
+# Product name
+PortTrack
 
-A web-based stock investment simulation platform designed for educational purposes.  
-Users can create or join investment rooms, receive virtual capital, trade stocks, and track portfolio performance over time. 
+## Group Code
+G05
 
----
+## Team members
+| Nguyen Anh Thu | 2312380036 | Team Leader & Database Coordinator|
+
+| To Ha Vy | 2313380039 | Backend 1: Authentication, Security, and Trading Room Management|
+
+| Pham Quoc Thai | 2313380033 | Backend 2: Trading Operations, Portfolio Management, and Stock Price Integration|
+
+| Pham Linh Nhan | 2312380024 | Frontend 1 – Authentication, Dashboard, and User Flow|
+
+| Dang Ngoc Linh | 2312380018 | Frontend 2 – Room Management, Trading, Portfolio, and Transaction History|
 
 ## Project Overview
 
@@ -18,7 +28,13 @@ Each user can:
 
 The system is designed for academic projects and learning purposes.
 
----
+## Problem solved
+Students need a realistic environment to practice investment and portfolio management, while lecturers need a tool to monitor and assess their performance. PortTrack provides a centralized platform that supports both learning and evaluation.
+
+## Target users
+- Portfolio Management lecturers
+- Students learning investment and portfolio management
+The platform is used during investment simulation activities and classroom projects.
 
 ## Main Features
 
@@ -65,83 +81,36 @@ Main tables:
 - Git / GitHub
 - VS Code 
 
----
-## Project structure
-
-PortTrack/
-├── CREATE_TABLE.TXT                     # Chứa lệnh SQL tạo database và các bảng
-├── Cấu trúc dữ liệu.txt                 # Giải thích chi tiết ý nghĩa các trường dữ liệu
-├── README.md                            # Thông tin giới thiệu chung về toàn bộ dự án
-│
-├── porttrack-backend/                   # THƯ MỤC BACKEND (SPRING BOOT)
-│   ├── .gitattributes                   # Cấu hình Git (xử lý lỗi dấu xuống dòng giữa Windows/Mac)
-│   ├── .gitignore                       # Chặn các file rác (thư mục target, log) không đưa lên Git
-│   ├── .mvn/wrapper/
-│   │   └── maven-wrapper.properties     # Cấu hình phiên bản Maven cụ thể cho dự án
-│   ├── mvnw                             # Script giúp chạy Maven trên Mac/Linux mà không cần cài đặt
-│   ├── mvnw.cmd                         # Script giúp chạy Maven trên Windows mà không cần cài đặt
-│   ├── pom.xml                          # File khai báo thư viện Java (Web, JPA, MySQL...)
-│   ├── src/main/java/com/musketeers/porttrack
-|   |   ├── PorttrackApplication.java  # File chạy chính (Main class) của Backend
-|   |   ├── config/           # Cấu hình toàn cục (Security, WebSocket, CORS, Swagger...)
-|   |   ├── controller/       # Nơi tiếp nhận Request từ Frontend (API Endpoints)
-|   |   ├── dto/              # Data Transfer Object (Đối tượng giao tiếp với Frontend)
-|   |   │   ├── request/      # DTO hứng dữ liệu từ Frontend gửi lên
-|   |   │   └── response/     # DTO trả dữ liệu về cho Frontend
-|   |   ├── entity/           # Các Class ánh xạ 1-1 với bảng trong Database (MySQL)
-|   |   ├── exception/        # Bắt và xử lý lỗi tập trung (GlobalExceptionHandler)
-|   |   ├── repository/       # Giao tiếp với Database (Spring Data JPA)
-|   |   ├── security/         # Chứa lõi bảo mật (Bộ lọc JWT, CustomUserDetails...)
-|   |   ├── service/          # Chứa logic nghiệp vụ (Interfaces)
-|   |   │   └── impl/         # Triển khai chi tiết của Interfaces
-|   |   └── util/             # Các hàm tiện ích dùng chung (Format ngày tháng, String...)
-│   ├── src/main/resources/
-│   │   └── application.properties       # Nơi điền cổng (port), tên đăng nhập/mật khẩu MySQL
-│   └── src/test/.../PorttrackApplicationTests.java  # File dành để viết code tự động kiểm thử (Unit Test)
-│
-└── porttrack-frontend/                  # THƯ MỤC FRONTEND (REACTJS + VITE)
-    ├── .gitignore                       # Chặn thư mục node_modules siêu nặng không đẩy lên Git
-    ├── README.md                        # Hướng dẫn cách cài đặt và chạy Frontend
-    ├── eslint.config.js                 # Cấu hình "cảnh sát" kiểm tra lỗi cú pháp và chuẩn format code
-    ├── index.html                       # File HTML gốc duy nhất, chứa thẻ <div id="root">
-    ├── package-lock.json                # "Khóa" chính xác phiên bản của từng thư viện đang dùng
-    ├── package.json                     # Khai báo tên dự án, thư viện (react, axios...) và lệnh chạy (npm run dev)
-    ├── public/
-    │   ├── favicon.svg                  # Icon nhỏ hiển thị trên tab của trình duyệt
-    │   └── icons.svg                    # File gom các icon vector (SVG) dùng chung cho trang web
-    ├── src/
-    │   ├── App.css                      # CSS định dạng riêng cho Component App
-    │   ├── App.tsx                      # Component React mẹ, chứa khung sườn giao diện
-    │   ├── index.css                    # CSS áp dụng chung cho toàn bộ trang web
-    │   ├── main.tsx                     # Điểm vào đầu tiên, nhúng code React vào index.html
-    │   └── assets/                      # Thư mục chứa tài nguyên hình ảnh
-    │       ├── hero.png                 # Ảnh minh họa/banner có thể dùng cho trang chủ
-    │       ├── react.svg                # File logo của React
-    │       └── vite.svg                 # File logo của Vite
-    ├── tsconfig.app.json                # Cấu hình TypeScript dành riêng cho code giao diện React
-    ├── tsconfig.json                    # Cấu hình TypeScript tổng quát cho toàn dự án
-    ├── tsconfig.node.json               # Cấu hình TypeScript dành cho môi trường build (Vite/Node)
-    └── vite.config.ts                   # File cấu hình công cụ đóng gói Vite (chỉnh port, plugin...)
-
-
-Lưu ý: Khi code màn nào hay chức năng nào thì cần phải chia folder và sắp xếp thật hợp lí vị trí file
-
 ## How to run
-**1. Khởi động Backend (Spring Boot)**
-- Mở Terminal, di chuyển vào thư mục `cd porttrack-backend`
-- Đảm bảo đã cài Java 17 và cấu hình MySQL đúng trong `application.properties`.
-- Chạy lệnh:
-  - Windows: `.\mvnw spring-boot:run` hoặc run file app
+**1. Start the Backend (Spring Boot)**
+- Open Terminal, navigate to `cd porttrack-backend`
+- Make sure Java 17 is installed and the MySQL is set correcctly in `application.properties`.
+- Run:
+  - Windows: `.\mvnw spring-boot:run` or run file app
   - Mac/Linux: `./mvnw spring-boot:run`
-- Server sẽ chạy tại: `http://localhost:8081`
+- Server will be available at: `http://localhost:8081`
 
-**2. Khởi động Frontend (ReactJS + Vite)**
-- Mở một Terminal khác, di chuyển vào thư mục `cd porttrack-frontend`
-- Cài đặt thư viện (chỉ chạy lần đầu): `npm install`, `npm install axios react-router-dom`
+**2. Start the Frontend (ReactJS + Vite)**
+- Open another Terminal, navigate to `cd porttrack-frontend`
+- Install dependencies (first time only): `npm install`, `npm install axios react-router-dom`
 
-- Khởi động giao diện: `npm run dev`
-- Truy cập trình duyệt tại: `http://localhost:5173`
+- Start the frontend application: `npm run dev`
+- Open browser and visit: `http://localhost:5173`
 
-**3. Cách test gọi API giá
-- `cd test-mqtt-stock`
-- `node test-current-price.js`
+## Demo steps
+- Register or log in.
+- Create or join an investment room.
+- Buy and sell stocks.
+- View portfolio performance and transaction history.
+- Check rankings and investment results.
+
+## Demo link
+- Demo link: 
+- Demo account: 
+
+## Data notes
+The system uses user-generated data and real-time stock market data for investment simulation. All portfolio and transaction data are stored in MySQL.
+
+## Additional notes
+This README provides a brief overview of the project and instructions for running the system. Detailed development information can be found in the project documentation. 
+
