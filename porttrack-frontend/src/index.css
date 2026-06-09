@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Thiết lập nền mặc định cho toàn trang để tránh viền trắng */
+@layer base {
+  html {
+    /* Cuộn mượt mà */
+    scroll-behavior: smooth;
+    /* MẸO: Trừ hao đúng chiều cao của Header (h-20 = 80px) để tiêu đề không bị che khuất */
+    scroll-padding-top: 80px; 
+  }
+  
+  body {
+    background-color: #0f172a; /* Mã màu tương đương bg-slate-900 */
+    color: #f8fafc;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@theme {
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-ultimate-glow: ultimate-glow 4s ease-in-out infinite;
+}
+
+/* Animation lơ lửng */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Animation hào quang nhịp thở */
+@keyframes ultimate-glow {
+  0% { 
+    opacity: 0.5; 
+    transform: scale(1); 
+    filter: blur(80px);
+  }
+  50% { 
+    opacity: 0.9; 
+    transform: scale(1.2); 
+    filter: blur(110px);
+  }
+  100% { 
+    opacity: 0.5; 
+    transform: scale(1); 
+    filter: blur(80px);
+  }
+}
+
+@layer utilities {
+  /* Ẩn thanh cuộn cho Chrome, Safari và Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ẩn thanh cuộn cho IE, Edge và Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+.animate-ultimate-glow {
+  animation: ultimate-glow 4s ease-in-out infinite;
+}
+
+/* Hiệu ứng shadow mềm cho nút bấm Premium */
+.shadow-premium {
+  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.3);
+}
+.shadow-premium:hover {
+  box-shadow: 0 0 25px -2px rgba(59, 130, 246, 0.5);
+}
