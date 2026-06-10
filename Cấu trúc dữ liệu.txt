@@ -2,16 +2,17 @@
 id (BIGINT): mã định danh của người dùng
 username (VARCHAR): tên đăng nhập
 password_hash (VARCHAR): mật khẩu đã mã hóa
+role (ENUM): vai trò tài khoản, chỉ gồm LECTURER (giảng viên) hoặc STUDENT (sinh viên)
 created_at (TIMESTAMP): thời gian tạo tài khoản
 
-Chức năng: lưu thông tin đăng nhập và nhận diện người dùng trong hệ thống.
+Chức năng: lưu thông tin đăng nhập, vai trò và nhận diện người dùng trong hệ thống.
 
 2. Bảng rooms: Quản lý thông tin phòng chơi
 id (BIGINT): mã phòng
 name (VARCHAR): tên phòng
 code (VARCHAR): mã phòng duy nhất
 type (ENUM): loại phòng (public/private)
-password (VARCHAR): mật khẩu phòng
+password (VARCHAR): BCrypt hash của mật khẩu phòng riêng; phòng công khai để NULL
 owner_id (BIGINT): người tạo phòng
 initial_balance (DECIMAL): vốn khởi tạo
 status (ENUM): trạng thái phòng

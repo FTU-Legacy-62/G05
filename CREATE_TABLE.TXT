@@ -8,6 +8,7 @@ CREATE TABLE users (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) UNIQUE NOT NULL,
     password_hash VARCHAR(255) NOT NULL,
+    role ENUM('LECTURER', 'STUDENT') NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
@@ -16,7 +17,7 @@ CREATE TABLE rooms (
     name VARCHAR(255) NOT NULL,
     code VARCHAR(50) UNIQUE NOT NULL,
     type ENUM('PUBLIC', 'PRIVATE') NOT NULL,
-    password VARCHAR(255) NULL,
+    password VARCHAR(255) NULL COMMENT 'BCrypt hash for private-room password',
     owner_id BIGINT NOT NULL,
     initial_balance DECIMAL(20,2) NOT NULL COMMENT 'Vốn khởi tạo',
     status ENUM('WAITING', 'RUNNING', 'FINISHED') DEFAULT 'WAITING',
