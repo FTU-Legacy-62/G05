@@ -9,10 +9,15 @@ G05
 ## Team Members
 
 | Nguyen Anh Thu | 2312380036 | Team Leader and Database Coordinator |
+
 | To Ha Vy | 2313380039 | Backend: Authentication, Security, Room Management, and Market Data Support |
+
 | Pham Quoc Thai | 2313380033 | Backend: Trading, Portfolio Management, and Stock Price Integration |
+
 | Pham Linh Nhan | 2312380024 | Frontend: Authentication, Dashboard, Owner Monitoring, and Navigation |
+
 | Dang Ngoc Linh | 2312380018 | Frontend: Student Room, Trading, Portfolio, Summary, and Transaction History |
+
 
 ## Short Product Description
 
