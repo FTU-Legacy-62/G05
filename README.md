@@ -81,23 +81,8 @@ Main tables:
 - Git / GitHub
 - VS Code 
 
-## How to run
-**1. Start the Backend (Spring Boot)**
-- Open Terminal, navigate to `cd porttrack-backend`
-- Make sure Java 17 is installed and the MySQL is set correcctly in `application.properties`.
-- Run:
-  - Windows: `.\mvnw spring-boot:run` or run file app
-  - Mac/Linux: `./mvnw spring-boot:run`
-- Server will be available at: `http://localhost:8081`
-
-**2. Start the Frontend (ReactJS + Vite)**
-- Open another Terminal, navigate to `cd porttrack-frontend`
-- Install dependencies (first time only): `npm install`, `npm install axios react-router-dom`
-
-- Start the frontend application: `npm run dev`
-- Open browser and visit: `http://localhost:5173`
-
 ## Demo steps
+- Open demo link: 
 - Register or log in.
 - Create or join an investment room.
 - Buy and sell stocks.
@@ -106,7 +91,6 @@ Main tables:
 
 ## Demo link
 - Demo link: 
-- Demo account: 
 
 ## Data notes
 The system uses user-generated data and real-time stock market data for investment simulation. All portfolio and transaction data are stored in MySQL.
