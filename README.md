@@ -5,28 +5,14 @@ PortTrack
 G05
 
 ## Team members
-| Nguyen Anh Thu | 2312380036 | Team Leader & Database Coordinator|
+| Nguyen Anh Thu | 2312380036 | Team Leader & Database Coordinator |
+| To Ha Vy | 2313380039 | Backend 1 – Authentication, Security, and Trading Room Management |
+| Pham Quoc Thai | 2313380033 | Backend 2: Trading Operations, Portfolio Management, and Stock Price Integration |
+| Pham Linh Nhan | 2312380024 | Frontend 1 – Authentication, Dashboard, and User Flow |
+| Dang Ngoc Linh | 2312380018 | Frontend 2 – Room Management, Trading, Portfolio, and Transaction History |
 
-| To Ha Vy | 2313380039 | Backend 1: Authentication, Security, and Trading Room Management|
-
-| Pham Quoc Thai | 2313380033 | Backend 2: Trading Operations, Portfolio Management, and Stock Price Integration|
-
-| Pham Linh Nhan | 2312380024 | Frontend 1 – Authentication, Dashboard, and User Flow|
-
-| Dang Ngoc Linh | 2312380018 | Frontend 2 – Room Management, Trading, Portfolio, and Transaction History|
-
-## Project Overview
-
-This project simulates a real-world stock investment environment to help users practice portfolio management and investment strategies.
-
-Each user can:
-- create a room
-- join public or private rooms
-- receive virtual capital
-- buy and sell stocks
-- monitor profit/loss and portfolio growth
-
-The system is designed for academic projects and learning purposes.
+## Project overview
+PortTrack is a web-based stock investment simulation platform developed for educational purposes. It allows students to practice stock trading with virtual capital, manage portfolios, and track investment performance. Lecturers can monitor trading activities and evaluate students’ results transparently.
 
 ## Problem solved
 Students need a realistic environment to practice investment and portfolio management, while lecturers need a tool to monitor and assess their performance. PortTrack provides a centralized platform that supports both learning and evaluation.
@@ -36,8 +22,7 @@ Students need a realistic environment to practice investment and portfolio manag
 - Students learning investment and portfolio management
 The platform is used during investment simulation activities and classroom projects.
 
-## Main Features
-
+## Main features
 - User registration and login
 - Create public/private investment rooms
 - Join existing rooms by room code
@@ -46,43 +31,9 @@ The platform is used during investment simulation activities and classroom proje
 - Transaction history
 - Daily NAV tracking
 - Ranking and performance comparison
-- Submit a document link for each investment room
-- Room owners can open player submission links from the player management view
 
----
-
-## Database Structure
-
-Main tables:
-- `users`: manage user accounts
-- `rooms`: manage investment rooms
-- `portfolios`: manage each user’s portfolio and submission link in a room
-- `portfolio_items`: stocks currently held
-- `transactions`: buy/sell history
-- `daily_nav_history`: daily portfolio value
-
----
-
-## Tech Stack
-
-### Frontend
-- React
-- HTML / CSS / JavaScript
-
-### Backend
-- Spring Boot
-- Spring Data JPA
-- REST API
-
-### Database
-- MySQL
-
-### Tools
-- Git / GitHub
-- VS Code 
-
-## Demo steps
-- Open demo link: 
+## How to run
+- Open demo link: https://port-track-xi.vercel.app/
 - Register or log in.
 - Create or join an investment room.
 - Buy and sell stocks.
@@ -90,7 +41,7 @@ Main tables:
 - Check rankings and investment results.
 
 ## Demo link
-- Demo link: 
+- Demo link: https://port-track-xi.vercel.app/
 
 ## Data notes
 The system uses user-generated data and real-time stock market data for investment simulation. All portfolio and transaction data are stored in MySQL.
