@@ -53,7 +53,53 @@ I learned React component design, TypeScript interfaces, routing, shared state, 
 
 ### Difficulties and Solutions
 
-The main challenge was maintaining consistent room data across several pages while presenting each dataset clearly. I centralized API access in `roomService`, reused room context through the shared layout, reviewed feature logic with teammates, and tested the interface against product requirements.
+Challenge 1 -Understanding how data is shared across multiple Room pages (RoomLayout + Outlet Context)
+
+Challenge
+
+One of the biggest challenges was understanding how different pages inside the Room module could share the same data without repeatedly calling the backend. As a non-technical student, I initially thought that each page, such as My Portfolio, Trade Hub, and Summary, should independently load its own room information.
+
+I also found concepts such as useParams(), Outlet, and Outlet Context difficult to understand. In particular, I could not understand why roomId was extracted only once in RoomLayout but could still be used by all the child pages.
+
+Solution
+
+After studying the project structure, I realized that RoomLayout acts as a parent container for all pages inside a room. It first extracts roomId from the URL, retrieves dashboard information and cash balance from the backend, stores them in React State, and then passes these values through Outlet Context.
+
+Therefore, when users switch between Dashboard, My Portfolio, Trade Hub, Transaction History, and Summary, the Header and Sidebar remain unchanged while only the content inside <Outlet /> is replaced. This approach avoids duplicate API calls and provides a smoother navigation experience.
+
+Challenge 2 - Understanding asynchronous API calls and React State (Portfolio & Summary Pages)
+
+Challenge
+
+Another major challenge was understanding why the Portfolio and Summary pages could not display data immediately after the page was opened. Initially, I expected that once I called roomService.getPortfolio(roomId) or roomService.getSummary(roomId), the data would already be available for rendering.
+
+However, I encountered situations where the page attempted to access values such as portfolio.holdings before the API had finished returning data, making it difficult for me to understand why the interface could become empty or produce errors.
+
+As a beginner, concepts such as useEffect, useState, asynchronous functions (async/await), and the component lifecycle were unfamiliar.
+
+Solution
+
+To solve this problem, I learned to separate the loading process into different stages. The API is first called inside useEffect(), the returned data is stored using useState(), and the interface is rendered only after the data becomes available.
+
+I also implemented loading states, error messages, and a cancelled flag to prevent state updates when users leave the page before the API request finishes. This made the Portfolio and Summary pages more stable and prevented unexpected rendering issues.
+
+Challenge 3 - Implementing the Trade Hub Workflow and Input Validation
+
+Challenge
+
+The Trade Hub page was one of the most challenging modules because it involves multiple sequential steps rather than simply displaying information. As someone without a technical background, I initially assumed that users could directly press Confirm Order after entering a stock symbol and quantity. However, I later realized that the trading process depends on several conditions and backend validations.
+
+I found it difficult to understand the relationship between searching for a stock, retrieving its latest market price, checking whether the market is open, validating the input quantity, and finally submitting the trading request through the API. Understanding how these independent actions should be connected into one complete workflow was particularly challenging.
+
+Solution
+
+To address this issue, I broke the trading process into a clear sequence of operations:
+
+Search Stock → Retrieve Price → Display Quote → Validate Trading Conditions → Submit Order → Receive Backend Response → Update the User Interface
+
+Instead of allowing users to submit requests immediately, the frontend first validates whether a stock has been searched successfully, whether the market session is open, and whether the entered quantity is valid. Only after these conditions are satisfied does the system call executeTrade() to send the request to the backend.
+
+This step-by-step validation improves system reliability, reduces invalid requests, and provides users with clearer feedback when errors occur.
 
 ### Message for Future Students
 
